@@ -2,8 +2,15 @@ package org.xml.demo.ui;
 
 import javax.swing.*;
 
+import lombok.Builder;
+import lombok.Getter;
+import lombok.ToString;
+
+@Getter
+@Builder
 public class Window extends JFrame {
 
+    @ToString.Exclude
     private String windowTitle;
     private int windowHeight;
     private int windowWidth;
@@ -15,7 +22,7 @@ public class Window extends JFrame {
         setTitle(windowTitle);
         setSize(windowWidth, windowHeight);
     }
-
+/*
     public static class WindowBuilder {
 
         private Window instance = new Window();
@@ -48,14 +55,5 @@ public class Window extends JFrame {
             return instance;
         }
     }
-
-    public static void main(String[] args) {
-        Window window = new Window.WindowBuilder().windowHeight(700).windowWidth(700).windowTitle("Test").build();
-        window.init();
-
-
-        window.add(new GraphicArea());
-
-        window.setVisible(true);
-    }
+    */
 }
