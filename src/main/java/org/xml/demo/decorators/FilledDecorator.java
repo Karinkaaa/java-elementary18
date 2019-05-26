@@ -4,7 +4,7 @@ import org.xml.demo.ui.Figure;
 
 import java.awt.*;
 
-public class ConcretteDecorator implements IDecorator {
+public class FilledDecorator implements IDecorator {
 
     @Override
     public void doDecorate(Figure target, Graphics g) {
