@@ -1,5 +1,7 @@
 package org.xml.demo.ui;
 
+import jdk.nashorn.internal.objects.annotations.Setter;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
@@ -23,6 +25,8 @@ public class GraphicArea extends JComponent {
     private int currentY;
 
     private List<Figure> figures = new LinkedList<>();
+
+    @Setter
 
     public GraphicArea() {
         addMouseListener(new MouseAdapter() {
@@ -63,7 +67,7 @@ public class GraphicArea extends JComponent {
 
         //draw existing figures
         for (Figure f: figures) {
-            f.draw(g);
+            f.draw(g, true);
         }
 
         if (isMousePressed) {

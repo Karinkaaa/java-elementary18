@@ -12,9 +12,10 @@ import java.io.InputStream;
 public class DomParseDemo {
 
     public static void main(String[] args) throws ParserConfigurationException, IOException, SAXException {
+
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-        InputStream is =  DomParseDemo.class.getClassLoader().getResourceAsStream("test.xml");
-        DocumentBuilder docBuilder =factory.newDocumentBuilder();
+        InputStream is = DomParseDemo.class.getClassLoader().getResourceAsStream("test.xml");
+        DocumentBuilder docBuilder = factory.newDocumentBuilder();
         Document document = docBuilder.parse(is);
 
         Element rootElement = document.getDocumentElement();
@@ -22,13 +23,13 @@ public class DomParseDemo {
     }
 
     private static void printAllXmlNodes(NodeList childs, String prefix) {
-        for (int i = 0; i< childs.getLength(); i++) {
+        for (int i = 0; i < childs.getLength(); i++) {
             Node node = childs.item(i);
             if (node instanceof Element) {
                 System.out.println("Node name is " + prefix + node.getNodeName());
                 if (node.hasAttributes()) {
                     NamedNodeMap attributes = node.getAttributes();
-                    for (int j = 0 ; j<attributes.getLength(); j++) {
+                    for (int j = 0; j < attributes.getLength(); j++) {
                         Node attributeNode = attributes.item(j);
                         System.out.println("Attribute class " + prefix + " " + attributeNode.getClass().getName());
                     }
